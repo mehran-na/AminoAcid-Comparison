@@ -36,9 +36,10 @@ public class ApplicationPrincipale {
         String acidesA = Inventaire.trouverAcide(a);
         String acidesB = Inventaire.trouverAcide(b);
 
-        Calcule calcule = new Calcule(acidesA, acidesB);
+        Calcule calcule = new Calcule(acidesA, acidesB, c);
         calcule.AjouterDansArrayList();
         calcule.trouverPairs();
+        calcule.creerDeviationMin();
         calcule.afficher();
 
         //GCCAAUUCCACGUCGUAU
