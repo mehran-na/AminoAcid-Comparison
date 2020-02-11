@@ -38,6 +38,8 @@ public class ApplicationPrincipale {
 
         Calcule calcule = new Calcule(acidesA, acidesB);
         calcule.AjouterDansArrayList();
+        calcule.trouverPairs();
+        calcule.afficher();
 
         //GCCAAUUCCACGUCGUAU
         //AAUUCGGCGACAGCCUGGUCCUAC
