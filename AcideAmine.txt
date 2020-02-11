@@ -1,23 +1,23 @@
-Ala|GCU,GCC,GCA,GCG|Alanine
-Arg|CGU,CGC,CGA,CGG,AGA,AGG|Arginine
-Asn|AAU,AAC|Asparagine
-Asp|GAU,GAC|Aspartate
-Cys|UGU,UGC|Cystéine
-GLu|GAA,GAG|Glutamate
-Gln|CAA,CAG|Glutamine
-Gly|GGU,GGC,GGA,GGG|Glycine
-His|CAU,CAC|Histidine
-Ile|AUU,AUC,AUA|Isoleucine
-Leu|UUA,UUG,CUU,CUC,CUA,CUG|Leucine
-Lys|AAA,AAG|Lysine
+Ala|GCU GCC GCA GCG|Alanine
+Arg|CGU CGC CGA CGG AGA AGG|Arginine
+Asn|AAU AAC|Asparagine
+Asp|GAU GAC|Aspartate
+Cys|UGU UGC|Cystéine
+GLu|GAA GAG|Glutamate
+Gln|CAA CAG|Glutamine
+Gly|GGU GGC GGA GGG|Glycine
+His|CAU CAC|Histidine
+Ile|AUU AUC AUA|Isoleucine
+Leu|UUA UUG CUU CUC CUA CUG|Leucine
+Lys|AAA AAG|Lysine
 Met|AUG|Méthionine
-Phe|UUU,UUC|Phénylalanine
-Pro|CCU,CCC,CCA,CCG|Proline
+Phe|UUU UUC|Phénylalanine
+Pro|CCU CCC CCA CCG|Proline
 Pyl|UAG|Pyrrolysine
 Sec|UGA|Sélénocystéine
-Ser|UCU,UCC,UCA,UCG,AGU,AGC|Sérine
-Thr|ACU,ACC,ACA,ACG|Thréonine
+Ser|UCU UCC UCA UCG AGU AGC|Sérine
+Thr|ACU ACC ACA ACG|Thréonine
 Trp|UGG|Typtophane
-Tyr|UAU,UAC|Tyrosine
-Val|GUU,GUC,GUA,GUG|Valine
+Tyr|UAU UAC|Tyrosine
+Val|GUU GUC GUA GUG|Valine
 Fin|UAA|Marqueur
