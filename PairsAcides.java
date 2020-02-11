@@ -1,4 +1,4 @@
-public class PairsAcides implements Comparable<PairsAcides> {
+public class PairsAcides {
     int indexUn;
     int indexDeux;
 
@@ -7,14 +7,7 @@ public class PairsAcides implements Comparable<PairsAcides> {
         this.indexDeux = indexDeux;
     }
 
-    @Override
-    public int compareTo(PairsAcides specifiquePairAcide) {
-        return this.indexUn - specifiquePairAcide.indexUn;
-    }
-
     public int deviation(){
         return Math.abs(indexUn - indexDeux);
     }
-
-
 }

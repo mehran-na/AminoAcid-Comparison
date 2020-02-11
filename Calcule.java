@@ -6,11 +6,16 @@ public class Calcule {
     private String acidesA;
     private String acidesB;
     private int distanceMax;
+    private int deviationTotal;
+    private double pond;
+    private double k;
 
     private ArrayList<String> s;
     private ArrayList<String> t;
     private ArrayList<PairsAcides> pairsAcides = new ArrayList<>();
+    private ArrayList<Integer> deviations = new ArrayList<>();
     private ArrayList<Integer> sChiffre = new ArrayList<>();
+    private ArrayList<Integer> tChiffre = new ArrayList<>();
 
     public Calcule(String acidesA, String acidesB, int distanceMax) {
         this.acidesA = acidesA;
@@ -40,32 +45,84 @@ public class Calcule {
 
     public void creerDeviationMin() {
         for(int i = 0; i < s.size(); i++) {
-            Dmin(i);
+            trouveDeviation(i, 's');
+        }
+        for(int i = 0; i < t.size(); i++) {
+            trouveDeviation(i, 't');
         }
     }
 
-    public void Dmin(int inx) {
-        ArrayList<Integer> deviations = new ArrayList<>();
-        for(int i = 0; i < pairsAcides.size(); i++) {
-            if (pairsAcides.get(i).indexUn == inx) {
-                deviations.add(pairsAcides.get(i).deviation());
-            }else{
-                deviations.add(this.distanceMax);
-            }
+    private void trouveDeviation(int inx, char acides) {
+        switch (acides) {
+            case 's':
+                for(int i = 0; i < pairsAcides.size(); i++) {
+                    if (pairsAcides.get(i).indexUn == inx) {
+                        deviations.add(pairsAcides.get(i).deviation());
+                    }else{
+                        deviations.add(this.distanceMax);
+                    }
+                }
+                Dmin(acides);
+                break;
+            case 't':
+                for(int i = 0; i < pairsAcides.size(); i++) {
+                    if (pairsAcides.get(i).indexDeux == inx) {
+                        deviations.add(pairsAcides.get(i).deviation());
+                    }else{
+                        deviations.add(this.distanceMax);
+                    }
+                }
+                Dmin(acides);
+                break;
         }
-        int minDeviation = deviations.get(0);
+    }
+
+    private void Dmin(char acides) {
+        int minDeviation = distanceMax;
         for(int deviation : deviations) {
             if (deviation < minDeviation) {
                 minDeviation = deviation;
             }
         }
-        sChiffre.add(minDeviation);
+        if (acides == 's') {
+            sChiffre.add(minDeviation);
+        }else{
+            tChiffre.add(minDeviation);
+        }
+        deviations.clear();
     }
+
+    public void calculerDeviationTotal() {
+        for(int deviation : sChiffre) {
+            this.deviationTotal += deviation;
+        }
+        for(int deviation : tChiffre) {
+            this.deviationTotal += deviation;
+        }
+    }
+
+    public void ponderer() {
+        int m = sChiffre.size();
+        int n = tChiffre.size();
+        this.pond = (double) this.deviationTotal / ((n + m) * this.distanceMax);
+    }
+
+    public void calculFinal() {
+        this.k = Math.exp(-6 * Math.pow(this.pond, 2));
+    }
+
 
     public void afficher() {
         for(int i = 0; i < sChiffre.size(); i++) {
+            //System.out.println(sChiffre.get(i));
             System.out.println(sChiffre.get(i));
         }
-
+        for(int i = 0; i < tChiffre.size(); i++) {
+            //System.out.println(sChiffre.get(i));
+            System.out.println(tChiffre.get(i));
+        }
+        System.out.println(deviationTotal);
+        System.out.println(pond);
+        System.out.println(k);
     }
 }

@@ -40,6 +40,10 @@ public class ApplicationPrincipale {
         calcule.AjouterDansArrayList();
         calcule.trouverPairs();
         calcule.creerDeviationMin();
+        calcule.calculerDeviationTotal();
+        calcule.ponderer();
+        calcule.calculFinal();
+
         calcule.afficher();
 
         //GCCAAUUCCACGUCGUAU
