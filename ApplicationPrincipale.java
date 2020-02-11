@@ -28,10 +28,20 @@ public class ApplicationPrincipale {
 
         String b = Console.lirARN("Entrer deuxièm ARN S.V P : ");
 
-        int c = Console.lireDistanceMax("Entrer distance maximal S.V P :");
+        int c = Console.lireDistanceMax("Entrer distance maximal S.V P : ");
 
         a = a.replaceAll("...", "$0 ");
         b = b.replaceAll("...", "$0 ");
+
+        String acidesA = Inventaire.trouverAcide(a);
+        String acidesB = Inventaire.trouverAcide(b);
+
+        Calcule calcule = new Calcule(acidesA, acidesB);
+        calcule.AjouterDansArrayList();
+
+        //GCCAAUUCCACGUCGUAU
+        //AAUUCGGCGACAGCCUGGUCCUAC
+
 
 
     }

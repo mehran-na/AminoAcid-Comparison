@@ -30,4 +30,18 @@ public class Inventaire {
             acides.add(new AcideAmine(abreviation, codon, nom));
         }
     }
+
+    //Trouver l'acide amine qu'il represente
+    public static String trouverAcide(String demandUtilisateur){
+        String resultat = "";
+        String [] arrDemandUtilisateur = demandUtilisateur.split("\\s");
+        for (int i = 0; i < arrDemandUtilisateur.length; i++){
+            for(AcideAmine acide : acides){
+                if(acide.getCodon().contains(arrDemandUtilisateur[i])){
+                    resultat += acide.getAbreviation() + " ";
+                }
+            }
+        }
+        return resultat;
+    }
 }
