@@ -49,5 +49,13 @@ public class ApplicationPrincipale {
         // Méthode d'affichage du résumé de ce que votre programme fait
         msgResume();
 
+        try {
+            Inventaire.lire();
+        } catch(Exception e) {
+            System.out.println("Fichier non trouvé!");
+        }
+
+        System.out.println(Inventaire.acides.get(21).getAbreviation());
+
     }
 }
