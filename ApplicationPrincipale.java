@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Classe ApplicationPrincipale
  *
@@ -9,53 +11,24 @@
  */
 
 public class ApplicationPrincipale {
-    /**
-     * Méthod msgBienvenue
-     *
-     * @description afficher le message de bienvenue
-     */
-    public static void msgBienvenue() {
-        System.out.println(Consts.MSG_BIENVENUE);
-    }
-
-    /**
-     * Méthod msgResume
-     *
-     * @description afficher le message de résumé de programme
-     */
-    public static void msgResume() {
-        System.out.println(Consts.MSG_RESUME);
-    }
-
-    /**
-     * Méthod msgFin
-     *
-     * @description afficher le message de fin de programme
-     */
-    public static void msgFin() {
-        System.out.println(Consts.MSG_FIN);
-    }
-
     public static void main(String[] args) {
-        // Déclaration des variables locales
-
-        // Initialisation des variables
-
-        /* **************************************************
-         *                Début du programme
-         **************************************************/
-        // Méthode d'affichage du message de bienvenue
-        msgBienvenue();
-        // Méthode d'affichage du résumé de ce que votre programme fait
-        msgResume();
-
         try {
             Inventaire.lire();
         } catch(Exception e) {
             System.out.println("Fichier non trouvé!");
         }
 
-        System.out.println(Inventaire.acides.get(21).getAbreviation());
+        // Méthode d'affichage du message de bienvenue
+        Console.msgBienvenue();
+
+        // Méthode d'affichage du résumé de ce que votre programme fait
+        Console.msgResume();
+
+        String a = Console.lirARN("Entrer premier ARN S.V P : ");
+
+        String b = Console.lirARN("Entrer deuxièm ARN S.V P : ");
+
+        int c = Console.lireDistanceMax("Entrer distance maximal S.V P :");
 
     }
 }
