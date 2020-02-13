@@ -11,6 +11,7 @@
 public class ApplicationPrincipale {
     public static void main(String[] args) {
 
+        //Lire le fichier AcideAmine.txt :
         try {
             Inventaire.lire();
         } catch(Exception e) {
@@ -21,7 +22,7 @@ public class ApplicationPrincipale {
         // Méthode d'affichage du message de bienvenue
         Console.msgBienvenue();
 
-        // Méthode d'affichage du résumé de ce que votre programme fait
+        // Méthode d'affichage du résumé de ce que programme fait
         Console.msgResume();
 
         //Demande des informations à l'utilisateur:
@@ -61,6 +62,7 @@ public class ApplicationPrincipale {
         //afficher résultat final à la console:
         Console.afficher(calcule.getK());
 
+        //afficher message fin d programme:
         Console.msgFin();
 
         //GCCAAUUCCACGUCGUAU

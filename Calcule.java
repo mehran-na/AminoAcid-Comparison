@@ -36,7 +36,7 @@ public class Calcule {
 
     /**
      * @description Méthod AjouterDansArrayList, pour ajouter 2 strings (acidesA , acidesB) dans
-     * 2 ArrayList (s,t)
+     * 2 ArrayList (s et t)
      */
     public void AjouterDansArrayList() {
         String[] arrAcidesA = acidesA.split("\\s");
@@ -63,7 +63,7 @@ public class Calcule {
     }
 
     /**
-     * @description Méthod creerDeviationMin, pour boucler sur ArrayLists s et t et pour chaque élément elle appelle
+     * @description Méthod creerDeviationMin, pour boucler sur ArrayLists s et t, pour chaque élément elle appelle
      * l'autre méthod et elle va envoyer un argument (i: index de cet élément)
      */
     public void creerDeviationMin() {
@@ -77,8 +77,8 @@ public class Calcule {
 
     /**
      * @description Méthod trouveDeviationS, pour chaque acide dans s, trouver les acides dant t qui sont
-     * correspond de ce acide, si elle trouve elle va calculer les déviations entre chaque pair d'acide identique avec
-     * appelle la méthod deviation.et à la fin elle appelle la méthod Dmin pour trouver la deviation minimal
+     * correspond de ce acide, si elle trouve elle va calculer les déviations entre chaque pair d'acide identique
+     * avec appelle la méthod deviation.et à la fin elle appelle la méthod Dmin pour trouver la deviation minimal
      *
      * @param inx   index de chaque élément dans s
      */
@@ -95,8 +95,8 @@ public class Calcule {
 
     /**
      * @description Méthod trouveDeviationT, pour chaque acide dans t, trouver les acides dant s qui sont
-     * correspond de ce acide, si elle trouve elle va calculer les déviations entre chaque pair d'acide identique avec
-     * appelle la méthod deviation.et à la fin elle appelle la méthod Dmin pour trouver la deviation minimal
+     * correspond de ce acide, si elle trouve elle va calculer les déviations entre chaque pair d'acide identique
+     * avec appelle la méthod deviation.et à la fin elle appelle la méthod Dmin pour trouver la deviation minimal
      *
      * @param inx
      */
