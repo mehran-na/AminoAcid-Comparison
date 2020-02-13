@@ -110,30 +110,6 @@ public class Calcule {
         }
         Dmin('t');
     }
-    /*private void trouveDeviation(int inx, char acides) {
-        switch (acides) {
-            case 's':
-                for(int i = 0; i < pairsAcides.size(); i++) {
-                    if (pairsAcides.get(i).indexUn == inx) {
-                        deviations.add(pairsAcides.get(i).deviation());
-                    }else{
-                        deviations.add(this.distanceMax);
-                    }
-                }
-                Dmin(acides);
-                break;
-            case 't':
-                for(int i = 0; i < pairsAcides.size(); i++) {
-                    if (pairsAcides.get(i).indexDeux == inx) {
-                        deviations.add(pairsAcides.get(i).deviation());
-                    }else{
-                        deviations.add(this.distanceMax);
-                    }
-                }
-                Dmin(acides);
-                break;
-        }
-    }*/
 
     /**
      * @description Méthod Dmin, pour trouver la deviation minimal
