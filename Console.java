@@ -57,4 +57,8 @@ public class Console {
         }
         return distanceMax;
     }
+
+    public static void afficher(double k) {
+        System.out.println("\n Similarite : " + k);
+    }
 }

@@ -17,12 +17,20 @@ public class Calcule {
     private ArrayList<Integer> sChiffre = new ArrayList<>();
     private ArrayList<Integer> tChiffre = new ArrayList<>();
 
+    //Constructors
     public Calcule(String acidesA, String acidesB, int distanceMax) {
         this.acidesA = acidesA;
         this.acidesB = acidesB;
         this.distanceMax = distanceMax;
     }
+    public Calcule() { }
 
+    //Getter:
+    public double getK() {
+        return k;
+    }
+
+    //Méthods
     public void AjouterDansArrayList() {
         String[] arrAcidesA = acidesA.split("\\s");
         String[] arrAcidesB = acidesB.split("\\s");
@@ -109,20 +117,5 @@ public class Calcule {
 
     public void calculFinal() {
         this.k = Math.exp(-6 * Math.pow(this.pond, 2));
-    }
-
-
-    public void afficher() {
-        for(int i = 0; i < sChiffre.size(); i++) {
-            //System.out.println(sChiffre.get(i));
-            System.out.println(sChiffre.get(i));
-        }
-        for(int i = 0; i < tChiffre.size(); i++) {
-            //System.out.println(sChiffre.get(i));
-            System.out.println(tChiffre.get(i));
-        }
-        System.out.println(deviationTotal);
-        System.out.println(pond);
-        System.out.println(k);
     }
 }
