@@ -10,12 +10,13 @@ import java.util.Scanner;
  * @version février 2020
  */
 public class Inventaire {
-    //private static String NOM_FICHIER = Consts.NOM_FICHIER;
-    public static ArrayList<AcideAmine> acides = new ArrayList<AcideAmine>();
+
+    private static ArrayList<AcideAmine> acides = new ArrayList<AcideAmine>();
 
     /**
-     * Lire les informations des Acide amines à partir du fichier AcideAmine.txt
-     * et les mettre dans l'attribut acides.
+     * @description  Lire les informations des Acide amines à partir du fichier AcideAmine.txt
+     * et créer object AcideAmine et les mettre dans l'attribut acides qui est un ArrayList.
+     *
      */
     public static void lire() throws Exception {
         File file = new File(Consts.NOM_FICHIER);
@@ -31,7 +32,13 @@ public class Inventaire {
         }
     }
 
-    //Trouver l'acide amine qu'il represente
+    /**
+     * @description Méthod trouverAcide, pour prendre la demande d'utilisateur et chercher dans ArrayList de ARNs
+     *
+     * @param demandUtilisateur    l'entrée d'utilisateur
+     * @return resultat      c'est Abréviations correspondence des codon demandés
+     *
+     */
     public static String trouverAcide(String demandUtilisateur){
         String resultat = "";
         String [] arrDemandUtilisateur = demandUtilisateur.split("\\s");

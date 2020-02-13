@@ -4,33 +4,29 @@ public class Console {
     private static Scanner scanner = new Scanner(System.in);
 
     /**
-     * Méthod msgBienvenue
+     * @description Méthod msgBienvenue, pour afficher le message de bienvenue
      *
-     * @description afficher le message de bienvenue
      */
     public static void msgBienvenue() {
         System.out.println(Consts.MSG_BIENVENUE);
     }
 
     /**
-     * Méthod msgResume
+     * @description Méthod msgResume, pour afficher le message de résumé de programme
      *
-     * @description afficher le message de résumé de programme
      */
     public static void msgResume() {
         System.out.println(Consts.MSG_RESUME);
     }
 
     /**
-     * Méthod msgFin
+     * @description Méthod lireARN, pour demander ARN à l'utilisateur
      *
-     * @description afficher le message de fin de programme
+     * @param prompt    message pour demander ARN à l'utilisateur
+     * @return arn      ARN validé
+     *
      */
-    public static void msgFin() {
-        System.out.println(Consts.MSG_FIN);
-    }
-
-    public static String lirARN(String prompt) {
+    public static String lireARN(String prompt) {
         System.out.print(prompt);
         String arn = scanner.nextLine();
         if (arn.length() % 3 == 0) {
@@ -48,6 +44,13 @@ public class Console {
         return arn;
     }
 
+    /**
+     * @description Méthod lireDistanceMax, pour demander la distance maximal à l'utilisateur
+     *
+     * @param prompt    message pour demander distance maximal à l'utilisateur
+     * @return distanceMax      un chiffre valid
+     *
+     */
     public static int lireDistanceMax(String prompt) {
         System.out.print(prompt);
         int distanceMax = scanner.nextInt();
@@ -58,7 +61,21 @@ public class Console {
         return distanceMax;
     }
 
+    /**
+     * @description Méthod afficher, pour afficher la résultat final
+     *
+     * @param k    similarité
+     *
+     */
     public static void afficher(double k) {
         System.out.println("\n Similarite : " + k);
+    }
+
+    /**
+     * @description Méthod msgFin, pour afficher le message de fin de programme
+     *
+     */
+    public static void msgFin() {
+        System.out.println(Consts.MSG_FIN);
     }
 }

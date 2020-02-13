@@ -23,7 +23,9 @@ public class Calcule {
         this.acidesB = acidesB;
         this.distanceMax = distanceMax;
     }
-    public Calcule() { }
+
+    public Calcule() {
+    }
 
     //Getter:
     public double getK() {
@@ -31,6 +33,11 @@ public class Calcule {
     }
 
     //Méthods
+
+    /**
+     * @description Méthod AjouterDansArrayList, pour ajouter 2 strings (acidesA , acidesB) dans
+     * 2 ArrayList (s,t)
+     */
     public void AjouterDansArrayList() {
         String[] arrAcidesA = acidesA.split("\\s");
         String[] arrAcidesB = acidesB.split("\\s");
@@ -40,6 +47,10 @@ public class Calcule {
 
     }
 
+    /**
+     * @description Méthod trouverPairs, pour trouver les pairs d'acides identiques entre s et t
+     * et pour chaque paire il y a un object, et ces objets vont ajouter dans ArrayList (pairesAcides)
+     */
     public void trouverPairs() {
         for(int i = 0; i < s.size(); i++) {
             for(int j = 0; j < t.size(); j++) {
@@ -51,16 +62,55 @@ public class Calcule {
         }
     }
 
+    /**
+     * @description Méthod creerDeviationMin, pour boucler sur ArrayLists s et t et pour chaque élément elle appelle
+     * l'autre méthod et elle va envoyer un argument (i: index de cet élément)
+     */
     public void creerDeviationMin() {
         for(int i = 0; i < s.size(); i++) {
-            trouveDeviation(i, 's');
+            trouveDeviationS(i);
         }
         for(int i = 0; i < t.size(); i++) {
-            trouveDeviation(i, 't');
+            trouveDeviationT(i);
         }
     }
 
-    private void trouveDeviation(int inx, char acides) {
+    /**
+     * @description Méthod trouveDeviationS, pour chaque acide dans s, trouver les acides dant t qui sont
+     * correspond de ce acide, si elle trouve elle va calculer les déviations entre chaque pair d'acide identique avec
+     * appelle la méthod deviation.et à la fin elle appelle la méthod Dmin pour trouver la deviation minimal
+     *
+     * @param inx   index de chaque élément dans s
+     */
+    private void trouveDeviationS(int inx) {
+        for(int i = 0; i < pairsAcides.size(); i++) {
+            if (pairsAcides.get(i).indexUn == inx) {
+                deviations.add(pairsAcides.get(i).deviation());
+            }else{
+                deviations.add(this.distanceMax);
+            }
+        }
+        Dmin('s');
+    }
+
+    /**
+     * @description Méthod trouveDeviationT, pour chaque acide dans t, trouver les acides dant s qui sont
+     * correspond de ce acide, si elle trouve elle va calculer les déviations entre chaque pair d'acide identique avec
+     * appelle la méthod deviation.et à la fin elle appelle la méthod Dmin pour trouver la deviation minimal
+     *
+     * @param inx
+     */
+    private void trouveDeviationT(int inx) {
+        for(int i = 0; i < pairsAcides.size(); i++) {
+            if (pairsAcides.get(i).indexDeux == inx) {
+                deviations.add(pairsAcides.get(i).deviation());
+            }else{
+                deviations.add(this.distanceMax);
+            }
+        }
+        Dmin('t');
+    }
+    /*private void trouveDeviation(int inx, char acides) {
         switch (acides) {
             case 's':
                 for(int i = 0; i < pairsAcides.size(); i++) {
@@ -83,8 +133,13 @@ public class Calcule {
                 Dmin(acides);
                 break;
         }
-    }
+    }*/
 
+    /**
+     * @description Méthod Dmin, pour trouver la deviation minimal
+     *
+     * @param acides    pour savoir c'est quel ArrayList (s ou t)
+     */
     private void Dmin(char acides) {
         int minDeviation = distanceMax;
         for(int deviation : deviations) {
@@ -100,6 +155,11 @@ public class Calcule {
         deviations.clear();
     }
 
+
+    /**
+     * @description Méthod calculerDeviationTotal, pour calculer la deviation total
+     *
+     */
     public void calculerDeviationTotal() {
         for(int deviation : sChiffre) {
             this.deviationTotal += deviation;
@@ -109,12 +169,20 @@ public class Calcule {
         }
     }
 
+    /**
+     * @description Méthod ponderer, pour calculer la métrique
+     *
+     */
     public void ponderer() {
         int m = sChiffre.size();
         int n = tChiffre.size();
         this.pond = (double) this.deviationTotal / ((n + m) * this.distanceMax);
     }
 
+    /**
+     * @description Méthod calculFinal, pour calculer la résultat final
+     *
+     */
     public void calculFinal() {
         this.k = Math.exp(-6 * Math.pow(this.pond, 2));
     }
